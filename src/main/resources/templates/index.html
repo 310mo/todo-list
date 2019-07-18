@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="part :: header">
+</head>
+<body>
+    <h1>TOP</h1>
+    <a th:href="@{'/find/'}">find</a>
+
+    <table>
+    <tr th:each="obj: ${data}">
+        <td th:unless="${obj.done}" th:text="${obj.content}"></td>
+        <td th:unless="${obj.done}" th:text="${obj.category}"></td>
+        <td th:unless="${obj.done}" ><a th:unless="${obj.done}" th:href="@{'/edit/' + ${obj.id}}">edit</a></td>
+    </tr>
+    </table>
+
+    <table>
+        <form method="post" action="/" th:object="${formModel}">
+            <tr><td><label for="content">content</label></td>
+                <td><input type="text" name="content" th:value="*{content}" /></td></tr>
+            <tr><td><label for="category">category</label></td>
+                <td><input type="text" name="category" th:value="*{category}" /></td></tr>
+            <tr><td><input type="submit" /></td></tr>
+        </form>
+    </table>
+</body>
+</html>
