@@ -15,6 +15,6 @@ public interface MyDataRepository extends JpaRepository<MyData, Long> {
 
     public List<MyData> findByContentLike(String content);
 
-    public Optional<MyData> findByCategory(String category);
+    public List<MyData> findByCategory(String category);
 
 }

@@ -72,8 +72,15 @@ public class HelloController {
         String category = request.getParameter("category");
         System.out.println(content);
         System.out.println(category);
-        if (content=="" && category=="") {
-            mav = new ModelAndView("redirect:/find");
+        if ("%%".equals(content)) {
+            mav.addObject("title", "Find result");
+            mav.addObject("msg", "検索結果");
+            mav.addObject("content", "");
+            mav.addObject("category", "");
+            System.out.println("let's data?");
+            List<MyData> data = repository.findByCategory(category);
+            mav.addObject("formModel", data);
+            
         }
         else {
             mav.addObject("title", "Find result");
