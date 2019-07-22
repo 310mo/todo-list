@@ -26,7 +26,7 @@ public class HelloController {
     public ModelAndView index(@ModelAttribute("formModel") MyData mydata, ModelAndView mav) {
         mav.setViewName("index");
         mav.addObject("msg", "this is sample content.");
-        Iterable<MyData> list=repository.findAll();
+        Iterable<MyData> list=repository.findByDone(0);
         mav.addObject("data", list);
         return mav;
     }
@@ -49,8 +49,13 @@ public class HelloController {
 
     @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
     @Transactional(readOnly=false)
-    public ModelAndView update(@ModelAttribute MyData mydata, ModelAndView mav) {
-        System.out.println(mydata.getDone());
+    public ModelAndView update(@ModelAttribute MyData mydata, @RequestParam(value="check1", required=false)boolean check1, ModelAndView mav) {
+        
+        System.out.println(mydata);
+        System.out.println(mydata.getId());
+        if (check1) {
+            mydata.setDone(1);
+        }
         repository.saveAndFlush(mydata);
         return new ModelAndView("redirect:/");
     }

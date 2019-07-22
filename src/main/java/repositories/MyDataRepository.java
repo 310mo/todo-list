@@ -17,4 +17,6 @@ public interface MyDataRepository extends JpaRepository<MyData, Long> {
 
     public List<MyData> findByCategory(String category);
 
+    public List<MyData> findByDone(int done);
+
 }

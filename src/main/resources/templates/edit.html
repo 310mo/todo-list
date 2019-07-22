@@ -11,8 +11,11 @@
                 <td><input type="text" name="content" th:value="*{content}" /></td></tr>
             <tr><td><label for="category">category</label></td>
                 <td><input type="text" name="category" th:value="*{category}" /></td></tr>
-            <tr><td><label for="done">done</label></td>
-                <td><input type="text" name="done" th:value="*{done}" /></td></tr>
+            <input type="hidden" name="done" th:value="*{done}" />
+            <!-- <tr><td><label for="done">done</label></td>
+                <td><input type="text" name="done" th:value="*{done}" /></td></tr>-->
+            <tr><td><label for="check1">done</label></td>
+                <td><input type="checkbox" id="check1" name="check1" /></td></tr>
             <tr><td></td><td><input type="submit" /></td></tr>                
         </form>
     </table>
