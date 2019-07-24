@@ -9,6 +9,10 @@ Spring Initializrで雛形を作成した。
 
 ## セットアップ手順
 ```
+./gradlew
+```
+でビルドを行う。
+```
 ./gradlew bootrun
 ```
 で実行する。また、src/main/resorces/application.propertiesのパスワードを変更する。
