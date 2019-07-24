@@ -1,7 +1,7 @@
 HELP.md
 .gradle
 build/
-src/main/resorces/application.properties
+#src/main/resorces/application.properties
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
