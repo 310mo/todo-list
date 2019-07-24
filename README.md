@@ -9,4 +9,4 @@ Spring Initializrで雛形を作成した。
 '''
 ./gradlew bootrun
 '''
-で実行する。
+で実行する。また、src/main/resorces/application.propertiesのパスワードを変更する。
