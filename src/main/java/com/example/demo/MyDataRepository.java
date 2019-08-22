@@ -1,4 +1,4 @@
-package com.example.demo.repositories;
+package com.example.demo;
  
 import com.example.demo.MyData;
 import java.util.Optional;
@@ -17,6 +17,6 @@ public interface MyDataRepository extends JpaRepository<MyData, Long> {
 
     public List<MyData> findByCategory(String category);
 
-    public List<MyData> findByDone(int done);
+    public List<MyData> findByIsdone(boolean isdone);
 
 }
