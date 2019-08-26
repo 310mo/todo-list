@@ -7,6 +7,10 @@
     <a th:href="@{'/search/'}">find</a>
 
     <table>
+    <tr>
+        <td class="head">content</td>
+        <td class="head">category</td>
+    </tr>
     <tr th:each="obj: ${data}">
         <td th:unless="${obj.isdone}" th:text="${obj.content}"></td>
         <td th:unless="${obj.isdone}" th:text="${obj.category}"></td>

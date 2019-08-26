@@ -19,37 +19,37 @@ import org.springframework.validation.annotation.Validated;
 public class TodoController {
 
     @Autowired
-    TodoService service;
+    TodoService todoservice;
 
     @RequestMapping(value = "/", method=RequestMethod.GET)
     public ModelAndView index(@ModelAttribute("formModel") MyData mydata, ModelAndView mav) {
-        return service.index(mydata, mav);
+        return todoservice.index(mydata, mav);
     }
 
     @RequestMapping(value="/", method=RequestMethod.POST)
     @Transactional(readOnly=false)
     public ModelAndView form(@ModelAttribute("formModel") @Validated MyData mydata, BindingResult result, ModelAndView mav) {
-        return service.form(mydata, result, mav);
+        return todoservice.form(mydata, result, mav);
     }
 
     @RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
     public ModelAndView edit(@ModelAttribute MyData mydata, @PathVariable int id, ModelAndView mav) {
-        return service.edit(mydata, id, mav);
+        return todoservice.edit(mydata, id, mav);
     }
 
     @RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
     @Transactional(readOnly=false)
     public ModelAndView update(@ModelAttribute MyData mydata, @RequestParam(value="checkisdone", required=false)boolean checkisdone, ModelAndView mav) {
-        return service.update(mydata, checkisdone, mav);
+        return todoservice.update(mydata, checkisdone, mav);
     }
 
     @RequestMapping(value="/search", method=RequestMethod.GET)
     public ModelAndView find(@ModelAttribute MyData mydata, ModelAndView mav, HttpServletRequest request) {
-        return service.find(mydata, mav, request);
+        return todoservice.find(mydata, mav, request);
     }
 
     @RequestMapping(value="/search", method=RequestMethod.POST)
     public ModelAndView search(HttpServletRequest request, ModelAndView mav) {
-        return service.search(request, mav);
+        return todoservice.search(request, mav);
     }
 }
