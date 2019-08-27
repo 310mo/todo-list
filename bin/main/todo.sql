@@ -72,7 +72,7 @@ CREATE TABLE `todo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `content` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `category` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `done` int(11) DEFAULT '0',
+  `isdone` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
